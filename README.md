@@ -71,3 +71,30 @@ Key components:
 
 ```bash
 ssh azureuser@4.230.142.25
+
+
+---
+
+## 4. Server Configuration
+
+### 4.1 System Update
+
+After accessing the VM via SSH, I updated the package list and installed required utilities:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y ufw git curl
+
+sudo apt install -y nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+systemctl status nginx
+
+http://4.230.142.25
+
+sudo ufw allow OpenSSH
+sudo ufw allow 'Nginx HTTP'
+sudo ufw --force enable
+sudo ufw status
+
